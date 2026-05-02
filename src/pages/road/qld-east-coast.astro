@@ -1,0 +1,184 @@
+---
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const coast = [
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/finch-hatton-mountain-view.jpg",
+    title: "Finch Hatton",
+    caption: "Cloud shadow over green country"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/fountain-springs-outback2.jpg",
+    title: "Low ridge",
+    caption: "Shape and heat in the land",
+    variant: "wide"
+  },
+  
+    {
+    image: "https://images.kroppix.com/road/west-of-the-coast/chinaman-creek-dam.jpg",
+    title: "Chinaman Creek Dam",
+    caption: "Water sitting quietly in dry country",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/fountain-springs-outback-qld.jpg",
+    title: "Rock and grass",
+    caption: "Country holding its colour",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/YOUR-IMAGE.jpg",
+    title: "Coast",
+    caption: "Light along the shoreline",
+    variant: "ultrawide"
+  }
+];
+
+const light = [
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/charters-tower-hill-sunset.jpg",
+    title: "Charters Towers",
+    caption: "A darker sky over warm stone",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/charters-sunset-bokeshi.jpg",
+    title: "Grass light",
+    caption: "A small flare of gold",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/julia-creek-sunset.jpg",
+    title: "Julia Creek",
+    caption: "A flat horizon and a wide sky",
+    variant: "ultrawide"
+  }
+];
+
+const encounters = [
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/charters-rock-wallaby.jpg",
+    title: "Wallaby",
+    caption: "Still for a moment in the grass"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/julia-creek-willywagtail.jpg",
+    title: "Willy wagtail",
+    caption: "A small shape crossing the heat"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/ballara-camel.jpg",
+    title: "Ballara camel",
+    caption: "A strange roadside face"
+  }
+];
+
+const ground = [
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/richmond-fossicking.jpg",
+    title: "Richmond fossicking",
+    caption: "A sign, a patch of ground, and time to look"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/belemite.jpg",
+    title: "Belemnite",
+    caption: "A small piece of older time"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/cloncurry-amethyst.jpg",
+    title: "Cloncurry amethyst",
+    caption: "Colour in the red ground"
+  }
+];
+
+const traces = [
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/mary-kathleen-township.jpg",
+    title: "Mary Kathleen",
+    caption: "The grid of a town mostly gone"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/bellara-station.jpg",
+    title: "Ballara station",
+    caption: "A line left in dry grass"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/wee-macgregor-tunnel.jpg",
+    title: "Wee MacGregor",
+    caption: "A tunnel framing blue sky"
+  }
+];
+---
+
+<BaseLayout title="QLD East Coast">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-image">
+        <img src="https://images.kroppix.com/road/west-of-the-coast/fountain-springs-drone.jpg" />
+      </div>
+
+      <div class="hero-copy">
+        <h1>QLD East Coast</h1>
+<p>Coastline, rainforest, and shifting light along Queensland’s eastern edge.</p>
+
+        <div class="route-strip">
+          <span>Charters Towers</span>
+          <span>Julia Creek</span>
+          <span>Richmond</span>
+          <span>Cloncurry</span>
+          <span>Clem Walton</span>
+          <span>Ballara</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+   <div class="section-heading">
+  <h2>East Coast</h2>
+  <p>Rainforest edges, coastal light, and quiet movement along the shoreline.</p>
+</div>
+    <div class="gallery-grid">
+{coast.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Light</h2>
+    </div>
+    <div class="gallery-grid">
+      {light.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Encounters</h2>
+    </div>
+    <div class="gallery-grid">
+      {encounters.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Ground</h2>
+    </div>
+    <div class="gallery-grid">
+      {ground.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Traces</h2>
+    </div>
+    <div class="gallery-grid">
+      {traces.map(photo => <GalleryCard {...photo} />)}
+    </div>
+    </section>
+
+</BaseLayout>

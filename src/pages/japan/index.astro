@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const japanSets = [
+  {
+    title: "Minoh",
+    href: "/japan/minoh",
+    image: "https://images.kroppix.com/japan/japan-mino.jpg",
+    caption: "Temple details, autumn colour, and quiet walking paths north of Osaka."
+  },
+  {
+    title: "Yoshino New Year",
+    href: "/japan/yoshino",
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-shrine-lantern.jpg",
+    caption: "A cold New Year’s Day in the mountains of Nara."
+  },
+  {
+    title: "Arashiyama",
+    href: "/japan/arashiyama",
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-statue-01.jpg",
+    caption: "Early spring, a path opening under blossom and light."
+  },
+  {
+    title: "Himeji",
+    href: "/japan/himeji",
+    image: "https://images.kroppix.com/japan/himeji/himeji-cherry-blossom.jpg",
+    caption: "A return to Himeji across winter and spring, from quiet structure to cherry blossom crowds."
+  }
+];
+
+const japanFavourites = [
+  {
+    image: "https://images.kroppix.com/favourites/himeji-koi.jpg",
+    title: "Himeji",
+    caption: "Koi and reflection"
+  },
+  {
+    image: "https://images.kroppix.com/favourites/kyoto-night.jpg",
+    title: "Kyoto",
+    caption: "Night light"
+  },
+  {
+    image: "https://images.kroppix.com/favourites/minoh-momoji.jpg",
+    title: "Minoh",
+    caption: "Autumn colour"
+  },
+  {
+    image: "https://images.kroppix.com/favourites/minoh-temple.jpg",
+    title: "Minoh",
+    caption: "Temple detail"
+  }
+];
+---
+
+<BaseLayout title="Japan | kroppix">
+  <div class="japan-page">
+
+<section class="page-intro">
+  <div>
+    <p class="eyebrow">Chapter One</p>
+    <h1>Japan</h1>
+  </div>
+
+  <div>
+    <p>
+      Japan sits at the centre of this archive — family, memory, travel,
+      and the quiet precision of streets, temples, mountains and ordinary details.
+    </p>
+    <p>
+      These pages are less about major landmarks and more about small observations:
+      timber, stone, light, weather, and the feeling of moving slowly through familiar places.
+    </p>
+  </div>
+</section>
+
+<section class="hero japan-full-hero">
+
+  <div class="hero-frame">
+    <div class="hero-image">
+      <img
+        src="https://images.kroppix.com/japan/japan-blossom-b%26w.jpg"
+        alt="Cherry blossom branch against a dark background"
+      />
+    </div>
+
+    <div class="caption">
+      Blossom held briefly in light, before it disappears.
+    </div>
+  </div>
+
+</section>
+
+  <section class="sets">
+    <h2>Japan sets</h2>
+
+    <div class="sets-grid">
+      {japanSets.map(set => (
+        <article class="set-card">
+          <a href={set.href}>
+            <img src={set.image} alt={set.title} loading="lazy" decoding="async" />
+          </a>
+          <h3><a href={set.href}>{set.title}</a></h3>
+          <p>{set.caption}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <div class="section-heading">
+      <h2>Selected Japan work</h2>
+      <p>A few favourite frames from Japan — colour, night, water, and temple detail.</p>
+    </div>
+
+    <div class="gallery-preview-grid">
+      {japanFavourites.map(photo => (
+        <figure>
+          <img src={photo.image} alt={photo.title} loading="lazy" decoding="async" />
+          <figcaption>{photo.title} — {photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+  </div>
+</BaseLayout>

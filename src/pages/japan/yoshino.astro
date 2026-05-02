@@ -1,0 +1,173 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/mika-kimono-slipper.jpg", // CHANGE THIS
+    title: "Step detail",                            // CHANGE THIS
+    caption: "White tabi and winter stone",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/mika-kimon-stairs.jpg",
+    title: "Stone Steps",
+    caption: "Patter, fabric, and the quiet of a shrine in the mountains on New Year’s Day",
+    variant: "tall"           // spans 2 columns
+  },
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-mika-kimono.jpg",
+    title: "New Year portrait",
+    caption: "A quiet moment on the path to prayer.",   
+    variant: "tall"
+  }
+];
+
+// CHANGE THIS — copy this block for each additional section you need
+// DELETE this whole block if you don't need a second section
+const sectionTwo = [
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-shrine-incence-newyears.jpg",
+    title: "Incence",
+    caption: "Smoke and light inside the shrine, a quiet moment of prayer and reflection on the year ahead",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-shrine-incence-newyears-2.jpg",
+    title: "Ritual",
+    caption: "Family, refelction and hope",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-shrine-incence-newyears-3.jpg",
+    title: "Candle light",
+    caption: "The gentle glow of candles within the shrine, symbolizing hope and renewal for the year ahead",
+    variant: "ultrawide"
+  }
+];
+const sectionThree = [
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-temple-bell.jpg",
+    title: "Incence",
+    caption: "Smoke and light inside the shrine, a quiet moment of prayer and reflection on the year ahead",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-temple-roof.jpg",
+    title: "Ritual",
+    caption: "Family, refelction and hope",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-statue-emu.jpg",
+    title: "Candle light",
+    caption: "The gentle glow of candles within the shrine, symbolizing hope and renewal for the year ahead",
+    variant: "tall"
+  }
+];
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Yoshino - New Years traditions"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+ <section class="hero">
+  <div class="hero-grid">
+
+    <div class="hero-image">
+      <img
+        src="https://images.kroppix.com/japan/yoshino-newyears/yoshino-shrine-lantern.jpg"
+        alt="Lantern at Yoshino Shrine"
+      />
+    </div>
+
+      <div class="hero-copy">
+        <h1>Yoshino - New Year's Traditions</h1> <!-- CHANGE THIS -->
+
+        <!-- One or two sentences about this place/journey -->
+        <p>A quiet winter visit shaped by incense smoke, stone steps, lantern light and the first shrine prayers of the year.</p> <!-- CHANGE THIS -->
+
+        <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>This set moves from Mika in kimono into the atmosphere of the temple grounds, then finishes on smaller details from around Yoshino.</p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Mika's kimono</h2> <!-- CHANGE THIS -->
+      <p>The fabric chosen from her grandmother's collection, made by a neighbour's hands. 
+        Worn on New Year's Day at Yoshino, where the family's connection to Yamabushi practice runs deep.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- SECOND SECTION — delete if not needed -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Shrine Atmosphere</h2> <!-- CHANGE THIS -->
+      <p>Smoke, prayer and lantern light across the temple grounds.</p> 
+    </div>
+
+    <div class="gallery-grid">
+      {sectionTwo.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
+    </div>
+  </section>
+ <section class="section">
+    <div class="section-heading">
+      <h2>Details around Yoshino</h2> <!-- CHANGE THIS -->
+      <p>Smaller observations from the temple grounds and surrounding structures.</p> 
+    </div>
+
+    <div class="gallery-grid">
+      {sectionThree.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
+    </div>
+  </section>
+
+  <!-- ADD MORE SECTIONS HERE — just copy the block above -->
+
+
+</BaseLayout>

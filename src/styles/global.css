@@ -1,0 +1,752 @@
+:root {
+  --bg: #f3f0e8;
+  --text: #1f2522;
+  --muted: #6d7169;
+  --line: #d8d0c2;
+  --white: #ffffff;
+  --max: 1180px;
+  --shadow-soft: 0 10px 24px rgba(0, 0, 0, 0.07);
+  --shadow-hover: 0 16px 34px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(243, 240, 232, 0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 46px 24px 80px;
+}
+
+footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px 50px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  line-height: 0.95;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* HERO / PHOTO PAGES */
+
+.hero {
+  margin-bottom: 64px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  align-items: end;
+}
+
+.hero-image {
+  background: var(--white);
+  padding: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+}
+
+.hero-copy h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  font-weight: 500;
+}
+
+.hero-copy p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  max-width: 42ch;
+}
+
+.route-strip {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.route-strip span::after {
+  content: "→";
+  margin-left: 10px;
+  color: var(--line);
+}
+
+.route-strip span:last-child::after {
+  content: "";
+}
+
+/* PHOTO PAGE SECTIONS */
+
+.section {
+  margin-top: 86px;
+  scroll-margin-top: 90px;
+}
+
+.section-heading {
+  margin-bottom: 34px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-heading h2 {
+  margin: 0 0 4px;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 68ch;
+}
+
+/* IMPORTANT: this is for actual photo galleries */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 26px;
+}
+
+.card {
+  grid-column: span 4;
+  background: var(--white);
+  padding: 10px;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  background: #ddd;
+  filter: saturate(0.96) contrast(1.02);
+}
+
+.card.wide {
+  grid-column: span 6;
+}
+
+.card.ultrawide {
+  grid-column: span 12;
+  margin-top: 16px;
+}
+
+.card.ultrawide img {
+  height: 430px;
+}
+
+.card.tall img {
+  height: 420px;
+}
+
+.caption {
+  margin-top: 10px;
+  padding-left: 0;   /* ← align with image */
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.caption-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.caption-sub {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  padding: 24px;
+  z-index: 100;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-inner {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.lightbox img {
+  max-height: 80vh;
+  margin: 0 auto;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.lightbox-caption {
+  margin-top: 14px;
+  color: white;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* HOMEPAGE */
+
+.intro {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: end;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.intro h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  line-height: 0.96;
+  font-weight: 500;
+  max-width: 12ch;
+}
+
+.intro p,
+.note {
+  color: var(--muted);
+}
+
+.note {
+  font-size: 0.9rem;
+  border-left: 2px solid var(--line);
+  padding-left: 16px;
+  opacity: 0.85;
+}
+
+.hero-gallery {
+  padding-top: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 90px;
+}
+
+.hero-gallery-header {
+  max-width: 44rem;
+  margin-bottom: 24px;
+}
+
+.hero-gallery-header h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 500;
+}
+
+.hero-gallery-header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.hero-grid-home {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.hero-grid-home figure {
+  margin: 0;
+}
+
+.hero-grid-home img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  filter: saturate(0.96) contrast(1.02);
+}
+
+.hero-grid-home img:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.about {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+}
+
+.about h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* SHARED CARD SECTIONS */
+
+.sections {
+  padding-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.section-card,
+.set-card {
+  background: rgba(255, 255, 255, 0.38);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.section-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+}
+
+.set-card {
+  padding: 14px;
+}
+
+.section-card:hover,
+.set-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: var(--shadow-hover);
+}
+
+.section-card a:first-child,
+.set-card a:first-child {
+  overflow: hidden;
+  display: block;
+}
+
+.section-card img,
+.set-card img {
+  width: 100%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  transition: transform 0.28s ease;
+  filter: saturate(0.96) contrast(1.02);
+}
+
+.section-card img {
+  height: 285px;
+}
+
+.set-card img {
+  height: 220px;
+}
+
+.section-card:hover img,
+.set-card:hover img {
+  transform: scale(1.025);
+}
+
+.section-card h2 {
+  margin: 0 0 8px;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.section-card h3,
+.set-card h3 {
+  margin: 10px 0 4px;
+  font-weight: 500;
+}
+
+.section-card p,
+.set-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 14px;
+}
+
+/* ROAD LANDING PAGE */
+
+.page-intro {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: none; /* ← remove line */
+}
+
+.page-intro h1 {
+  max-width: 12ch;
+}
+
+.page-intro p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 1.02rem;
+  max-width: 42rem;
+}
+
+.eyebrow,
+.meta {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.body-copy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-top: 46px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.body-copy p {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.sets,
+.gallery-preview {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 90px;
+}
+
+.sets h2,
+.gallery-preview h2 {
+  margin: 0 0 18px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.sets-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* IMPORTANT: separate class so it does NOT break photo pages */
+
+.gallery-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.gallery-preview-grid figure {
+  margin: 0;
+}
+
+.gallery-preview-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  filter: saturate(0.96) contrast(1.02);
+}
+
+.gallery-preview-grid figcaption {
+  margin-top: 8px;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .card.wide {
+    grid-column: span 6;
+  }
+
+  .card img {
+    height: 300px;
+  }
+
+  .card.tall img {
+    height: 360px;
+  }
+
+  .card.ultrawide {
+    grid-column: span 12;
+  }
+
+  .card.ultrawide img {
+    height: 360px;
+  }
+}
+
+@media (max-width: 800px) {
+  .intro,
+  .about,
+  .page-intro,
+  .body-copy,
+  .sections,
+  .sets-grid,
+  .gallery-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 620px) {
+  main {
+    padding: 28px 16px 56px;
+  }
+
+  .nav {
+    padding: 14px 16px;
+  }
+
+  .intro h1,
+  .page-intro h1 {
+    max-width: none;
+  }
+
+  .card,
+  .card.wide,
+  .card.ultrawide {
+    grid-column: span 12;
+  }
+
+  .card img,
+  .card.tall img,
+  .card.ultrawide img,
+  .hero-image img {
+    height: auto;
+  }
+
+  .hero-grid-home {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid-home img,
+  .gallery-preview-grid img {
+    height: auto;
+  }
+}
+/* --- Premium homepage chapter layout --- */
+
+.home-chapters {
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.home-chapters .section-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.34);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.home-chapters .section-card img {
+  height: 420px;
+  object-fit: cover;
+}
+
+.home-chapters .section-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: var(--shadow-hover);
+}
+
+.home-chapters .section-card h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.home-chapters .section-card p {
+  line-height: 1.65;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+  .home-chapters .section-card {
+    grid-template-columns: 1fr;
+  }
+
+  .home-chapters .section-card img {
+    height: 300px;
+  }
+
+  .home-chapters .section-card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+/* --- Japan landing page (simple, clean) --- */
+
+.japan-page .hero img,
+.japan-page .gallery-preview-grid img {
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.japan-page .body-copy p {
+  max-width: 36ch;
+}
+
+.japan-page .sets,
+.japan-page .gallery-preview {
+  margin-top: 64px;
+}
+
+/* IMPORTANT: full-width portrait hero (no height constraints) */
+
+.japan-full-hero .hero-image {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.japan-full-hero .hero-image img {
+  width: 100%;
+  height: auto;        /* ← this fixes your portrait issue */
+  object-fit: contain; /* ← no cropping */
+}
+.japan-full-hero .hero-frame {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.japan-full-hero .hero-image {
+  padding: 10px;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.japan-full-hero .hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.japan-full-hero .caption {
+  margin: 10px 0 0;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}

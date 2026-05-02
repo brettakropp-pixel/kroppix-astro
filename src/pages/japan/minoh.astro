@@ -1,0 +1,159 @@
+---
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const creek = [
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-autumn-leaves.jpg",
+    title: "Autumn leaves",
+    caption: "Small colour gathering where people usually pass without looking"
+  },
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-creek-school-kids.jpg",
+    title: "Creek and movement",
+    caption: "A sudden burst of noise and colour through the valley",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-yamabushi.jpg",
+    title: "Yamabushi",
+    caption: "Ritual and landscape briefly intersecting before returning to stillness",
+    variant: "ultrawide"
+  }
+];
+
+const temple = [
+  {
+    image: "https://images.kroppix.com/japan/minoh-temple-autumn.jpg",
+    title: "Shrine",
+    caption: "Timber, geometry, and quiet held against the surrounding green",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-temple-rain.jpg",
+    title: "Temple rain",
+    caption: "A softer frame of lanterns, wood, and weather",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-mountain-tree.jpg",
+    title: "Mountain tree",
+    caption: "Forest surface reduced to texture, light, and colour",
+    variant: "tall"
+  }
+];
+
+const detail = [
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-temple-roof.jpg",
+    title: "Roofline",
+    caption: "Simple geometry against open sky",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-temple-roof-ornament.jpg",
+    title: "Roof ornament",
+    caption: "A closer, more vertical detail",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/minoh/minoh-temple-roof-ornament-2.jpg",
+    title: "Guardian",
+    caption: "Weight and presence above",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/japan-mino-fountain.jpg",
+    title: "Fountain",
+    caption: "Stone, water, and a quieter kind of ornament",
+    variant: "ultrawide"
+  }
+];
+---
+
+<BaseLayout title="Minoh" subnav={[
+  { label: 'Japan',      href: '/japan' },
+  { label: 'Arashiyama', href: '/japan/arashiyama' },
+  { label: 'Tennoji',    href: '/japan/tennoji' },
+  { label: 'Himeji',     href: '/japan/himeji' },
+  { label: 'Yoshino',    href: '/japan/yoshino-newyears' },
+  { label: 'Minoh',      href: '/japan/minoh' },
+]}>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/japan/japan-mino.jpg"
+          alt="Dragon fountain detail in Minoh"
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Minoh</h1>
+        <p>A valley where water, stone, and timber settle into a slower rhythm, and the path reveals itself in small, passing moments.</p>
+        <p>A walk through the quieter edge of Osaka, where the creek keeps moving and the city begins to loosen its grip.</p>
+
+        <div class="route-strip">
+          <span>Osaka</span>
+          <span>Forest path</span>
+          <span>Creek</span>
+          <span>Temple</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="section-heading">
+      <h2>Minoh</h2>
+      <p>Less a destination than a gradual change in pace.</p>
+    </div>
+
+    <div class="intro-grid">
+      <div>
+        <p>Minoh feels less like a destination and more like a gradual shift — the city giving way to forest, concrete to water, noise to something softer.</p>
+        <p>The path follows the creek, but it is the edges that hold your attention. Leaves collecting on railings, moss finding its way into timber, small details that do not announce themselves.</p>
+      </div>
+
+      <div>
+        <p>Temples and shrines appear along the way, not set apart but folded into the landscape. People pass through quietly — walking, pausing, moving on without much ceremony.</p>
+        <p>It is the kind of place that does not ask for your focus, but rewards it if you give it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Along the creek</h2>
+      <p>The path opening and closing through water, people and forest.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {creek.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Temple and shelter</h2>
+      <p>Places along the path where the walk pauses and the atmosphere shifts.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {temple.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Detail</h2>
+      <p>Smaller observations from the structures and surfaces along the walk.</p>
+    </div>
+
+    <div class="gallery-grid">
+      {detail.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+const { image, title, caption, variant = "" } = Astro.props;
+---
+
+<figure 
+  class={`card ${variant}`}
+  data-full={image}
+  data-caption={title}
+>
+  <img src={image} alt={title} loading="lazy" decoding="async" />
+
+  <figcaption class="caption">
+    <span class="caption-title">{title}</span>
+    <span class="caption-sub">{caption}</span>
+  </figcaption>
+</figure>

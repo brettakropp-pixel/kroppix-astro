@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+
+const { title = 'Kroppix' } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="nav">
+        <a href="/" class="brand">kroppix</a>
+
+        <nav class="nav-links">
+          <a href="/">Home</a>
+          <a href="/road">Road</a>
+          <a href="/japan">Japan</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- LIGHTBOX — lives here so you never add it to a page again -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">&times;</button>
+      <div class="lightbox-inner">
+        <img id="lightboxImage" src="" alt="" />
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+
+    <footer>
+      © kroppix
+    </footer>
+
+    <script>
+      const cards = document.querySelectorAll('.card[data-full]');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage') as HTMLImageElement;
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          lightboxImage.src = (card as HTMLElement).dataset.full || '';
+          lightboxCaption.textContent = (card as HTMLElement).dataset.caption || '';
+          lightbox.classList.add('open');
+        });
+      });
+
+      lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('open');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('open');
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') lightbox.classList.remove('open');
+      });
+    </script>
+
+  </body>
+</html>

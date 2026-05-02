@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const journeys = [
+  {
+    title: "QLD East Coast",
+    href: "/road/qld-east-coast",
+    image: "https://images.kroppix.com/road/qld-east-coast/bargara-drone-coastline.jpg",
+    caption: "A south-to-north run through cane fields, ranges and coastal water."
+  },
+  {
+    title: "West of the Coast",
+    href: "/road/west-of-the-coast",
+    image: "https://images.kroppix.com/road/west-of-the-coast/julia-creek-sunset.jpg",
+    caption: "A shift inland into dry country, distance, and slower time."
+  }
+];
+
+const roadFavourites = [
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/finch-hatton-mountain-view.jpg",
+    title: "Finch Hatton",
+    caption: "Cloud and range"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/magnetic-island-drone.jpg",
+    title: "Magnetic Island",
+    caption: "Form and water"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/mackay-sugarcane-sunset.jpg",
+    title: "Mackay",
+    caption: "End of day"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/julia-creek-sunset.jpg",
+    title: "Julia Creek",
+    caption: "Flat horizon, wide sky"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/charters-rock-wallaby.jpg",
+    title: "Wallaby",
+    caption: "Stillness in the grass"
+  },
+  {
+    image: "https://images.kroppix.com/road/west-of-the-coast/clem-walton-milky-way.jpg",
+    title: "Clem Walton",
+    caption: "Night taking over"
+  }
+];
+---
+
+<BaseLayout title="The Road | kroppix">
+
+  <section class="page-intro">
+    <div>
+      <p class="eyebrow">Chapter Two</p>
+      <h1>The Road</h1>
+    </div>
+
+    <div>
+      <p>
+        The road is less about arriving somewhere than moving through it — coastlines,
+        inland detours, roadside pauses and long stretches in between.
+      </p>
+      <p>
+        These pages follow journeys rather than places. Light shifts, weather changes,
+        and small encounters interrupt the drive.
+      </p>
+    </div>
+  </section>
+
+  <section class="hero">
+    <img
+      src="https://images.kroppix.com/road/qld-east-coast/magnetic-island-jetty.jpg"
+      alt="Jetty extending into blue water at Magnetic Island"
+    />
+    <div class="caption">
+      Magnetic Island. A line out over water, somewhere near the end of the road.
+    </div>
+  </section>
+
+  <section class="body-copy">
+    <div>
+      <p>
+        Travelling this way changes what you notice. The obvious view fades quickly,
+        replaced by smaller details — the angle of a road, a shift in colour, a quiet moment.
+      </p>
+      <p>
+        The camera follows that change. Less about documenting where something is,
+        more about how it feels to move through it.
+      </p>
+    </div>
+
+    <div>
+      <p>
+        Over time, these journeys build into a broader map — coastlines, inland routes,
+        and places that only make sense when seen as part of something longer.
+      </p>
+      <p>
+        For now, it begins with Queensland.
+      </p>
+    </div>
+  </section>
+
+  <section class="sets">
+    <h2>Journeys</h2>
+
+    <div class="sets-grid">
+      {journeys.map(j => (
+        <article class="set-card">
+          <a href={j.href}>
+            <img src={j.image} alt={j.title} loading="lazy" decoding="async" />
+          </a>
+          <h3><a href={j.href}>{j.title}</a></h3>
+          <p>{j.caption}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <div class="section-heading">
+      <h2>Selected road work</h2>
+      <p>A few favourite frames from the road — coast, inland light, wildlife, and night sky.</p>
+    </div>
+
+    <div class="gallery-preview-grid">
+      {roadFavourites.map(photo => (
+        <figure>
+          <img src={photo.image} alt={photo.title} loading="lazy" decoding="async" />
+          <figcaption>{photo.title} — {photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

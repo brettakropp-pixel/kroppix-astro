@@ -1,0 +1,172 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-castle-winter.jpg", // CHANGE THIS
+    title: "Your title here",                            // CHANGE THIS
+    caption: "stone, plaster and tile",  
+    variant: "wide"                         // CHANGE THIS (or delete this line)               
+  },
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-building-detail.jpg",
+    title: "Castle detail",
+    caption: "Your caption here",
+    variant: "wide"           // spans 2 columns
+  
+  },
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-perspective.jpg",
+    title: "perspective",
+    caption: "Rooflines stacking into view",
+    variant: "ultrawide"      // full width
+  }
+];
+
+// CHANGE THIS — copy this block for each additional section you need
+// DELETE this whole block if you don't need a second section
+const sectionTwo = [
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-cherry-blossom.jpg",
+    title: "Cherry blossom",
+    caption: "Castle framed by spring and blue skies",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-cherry-blossom-crowd.jpg",
+    title: "Blossom crowd",
+    caption: "Seasonal energy around the castle grounds",
+    variant: "wide"
+  },
+
+];
+const sectionThree = [
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-hinge-detail.jpg",
+    title: "Hinge detail",
+    caption: "wood and iron",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/himeji/himeji-roof-lines.jpg",
+    title: "Roof lines",
+    caption: "repeating edges",
+    variant: "tall"
+  },
+   {
+    image: "https://images.kroppix.com/japan/himeji/himeji-gardens-mika.jpg",
+    title: "Winter gardens",
+    caption: "A quieter human moment",
+    variant: "tall"
+  },
+   {
+    image: "https://images.kroppix.com/japan/himeji/himeji-bird.jpg",
+    title: "Bird",
+    caption: "A moment of stillness in the gardens",
+    variant: "ultrawide"
+  },
+];
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Page Title"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/japan/himeji/himeji-koi.jpg" 
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Himeji two seasons</h1> 
+
+        <p>A visit across two seasons — winter architecture and spring blossom.</p> 
+        <p>This set moves from broad castle views into rooflines, details, gardens, and the atmosphere around the grounds.</p> 
+
+        <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>A second line if you want it.</p>
+
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Winter</h2> <!-- CHANGE THIS -->
+      <p>Quiet, pale light and strong architectural form.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- SECOND SECTION — delete if not needed -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Spring</h2> <!-- CHANGE THIS -->
+      <p>Cherry blossoms and the vibrant energy of the season.</p> 
+    </div>
+
+    <div class="gallery-grid">
+      {sectionTwo.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
+    </div>
+  </section>
+
+ <section class="section">
+    <div class="section-heading">
+      <h2>Atmosphere</h2> <!-- CHANGE THIS -->
+      <p>Smaller observations around the castle grounds</p> 
+    </div>
+
+    <div class="gallery-grid">
+      {sectionThree.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionThree to match your array name -->
+    </div>
+  </section>
+  <!-- ADD MORE SECTIONS HERE — just copy the block above -->
+
+
+</BaseLayout>

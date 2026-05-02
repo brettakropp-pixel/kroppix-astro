@@ -1,17 +1,99 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 
+const favourites = [
+  "aloe.jpg",
+  "hastings-point.jpg",
+  "himeji-koi.jpg",
+  "kyoto-night.jpg",
+  "minoh-momoji.jpg",
+  "minoh-temple.jpg",
+  "qld-willy-sunset.jpg",
+  "sa-flinders-emi.jpg",
+  "tas-cradle.jpg"
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+
+  <section class="intro">
+    <div>
+      <h1>A quiet record of places, light, and life lived.</h1>
+      <p>
+        This is a personal archive of photographs and notes gathered across Japan,
+        years on the road around Australia, and the beginning of a night sky chapter.
+      </p>
+    </div>
+
+    <div class="note">
+      Built simply, with room to grow. Start with a few images, a few words, the rest arrive over time.
+    </div>
+  </section>
+
+  <section class="hero-gallery">
+    <div class="hero-gallery-header">
+      <div class="meta">Selected work</div>
+      <h2>Nine favourites</h2>
+      <p>
+        A small, mixed gallery of photographs that sit closest to the centre of the project.
+        This can stay fluid and change over time.
+      </p>
+    </div>
+
+    <div class="hero-grid-home">
+      {favourites.map(file => (
+        <figure>
+          <img 
+            loading="lazy" 
+            decoding="async" 
+            src={`https://images.kroppix.com/favourites/${file}`} 
+            alt=""
+          />
+        </figure>
+      ))}
+    </div>
+  </section>
+
+<section class="sections home-chapters">
+    <article class="section-card">
+      <a href="/japan">
+        <img loading="lazy" decoding="async" src="https://images.kroppix.com/japan/takayama-temple-roof.jpg" alt="Temple roofline in Takayama, Japan" />
+      </a>
+      <div>
+        <div class="meta">Chapter One</div>
+        <h2><a href="/japan">Japan</a></h2>
+        <p>Japan begins here for me: not with landmarks, but with small precision and quiet attention.</p>
+      </div>
+    </article>
+
+    <article class="section-card">
+      <a href="/road/qld-east-coast">
+        <img loading="lazy" decoding="async" src="https://images.kroppix.com/road/uluru-sunrise.jpg" alt="Moments from life on the road across Australia" />
+      </a>
+      <div>
+        <div class="meta">Chapter Two</div>
+        <h2><a href="/road/qld-east-coast">The Road</a></h2>
+        <p>Three years moving through the country — landscapes, stops, and in-between moments.</p>
+      </div>
+    </article>
+
+    <article class="section-card">
+      <img loading="lazy" decoding="async" src="https://images.kroppix.com/night-sky/tasmania-southern-lights.jpg" alt="Southern Lights over Tasmania" />
+      <div>
+        <div class="meta">Chapter Three</div>
+        <h2>Night Sky</h2>
+        <p>A quiet introduction to photographing light that doesn’t belong to the day.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="about">
+    <h3>About</h3>
+    <div>
+      <p>
+        kroppix is a personal photography project by Brett Kropp — an evolving archive of photographs and reflections gathered over time.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

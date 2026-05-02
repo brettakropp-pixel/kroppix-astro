@@ -1,0 +1,162 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-statue-03.jpg", // CHANGE THIS
+    title: "Walkman",                            // CHANGE THIS
+    caption: "Stone rakan on a quiet hillside, each face a story of recovery carved by ordinary hands at Otagi Nenbutsu-ji",
+    variant: "wide"                         // CHANGE THIS (or delete this line)
+  },
+   {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-statue-04.jpg",
+    title: "The boxer",
+        variant: "wide"     // spans 2 columns
+  }, 
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-bell.jpg",
+    title: "Temple bell",
+    caption: "bokeshi captured in early morning light, a quiet moment before the paths fill with visitors",
+    variant: "ultrawide"
+  },
+ 
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-statue-02.jpg",
+    title: "Grouped voices",
+    caption: "A cluster of rakan, each with a different expression, gathered together in the quiet of the hillside",
+    variant: "wide"           // spans 2 columns
+  },
+   {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-roof-trad.jpg",
+    title: "Roof detail",
+    caption: "Traditional roofline, small detail on the walk to the temple",
+    variant: "wide"           // spans 2 columns
+  },
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-bird-carving.jpg",
+    title: "Tea shop welcome",
+    caption: "Bird carving in Arashiyama, a small detail that caught my eye on the way to the busier paths",
+    variant: "ultrawide"      // full width
+  }
+];
+
+// CHANGE THIS — copy this block for each additional section you need
+// DELETE this whole block if you don't need a second section
+const sectionTwo = [
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-blossom-01.jpg",
+    title: "Moon and blossom",
+    caption: "A brief window when the trees and the sky are equally worth looking at",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-river.jpg",
+    title: "The river bank",
+    caption: "Everyone arriving at the same moment, drawn by the same thing — the river, the light, the blossom",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/arashiyama/arashiyama-river-blossom.jpg",
+    title: "Blue boats",
+    caption: "The Oi River in full blossom season, the water busy and the trees briefly extraordinaryYour caption here",
+    variant: "ultrawide"
+  }
+];
+
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Page Title"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-image">
+       <img
+  src="https://images.kroppix.com/japan/arashiyama/arashiyama-statue-01.jpg"
+  alt="Smiling stone buddha"
+/>
+      </div>
+
+      <div class="hero-copy">
+        <h1>Arashiyama</h1> <!-- CHANGE THIS -->
+
+        <!-- One or two sentences about this place/journey -->
+        <p>A single day gathered slowly: blossom, river, roofline, small shrine detail, and the quieter places just beyond the better-known paths.</p> <!-- CHANGE THIS -->
+
+        <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>This page works less like a guide and more like a sequence of observations — a place understood through fragments rather than a single view.</p>
+
+      
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Otagi Nenbutsu-ji</h2> <!-- CHANGE THIS -->
+      <p>At Otagi Nenbutsu-ji, the hillside of stone figures carries a quieter history of recovery. 
+  After years of damage from floods, storms, and decline, the temple was restored in the 20th century under a sculptor-monk who invited ordinary people to carve the rakan themselves.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- SECOND SECTION — delete if not needed -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>River Blossoms</h2> <!-- CHANGE THIS -->
+       <p>Cherry blossom at its peak, and the whole city finding its way to the water's edge..</p>
+    </div>
+
+    <div class="gallery-grid">
+      {sectionTwo.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- ADD MORE SECTIONS HERE — just copy the block above -->
+
+
+</BaseLayout>
