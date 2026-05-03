@@ -1,7 +1,16 @@
 ---
 import '../styles/global.css';
 
-const { title = 'Kroppix' } = Astro.props;
+const { title = 'Kroppix', subnav } = Astro.props;
+
+// Default top-level nav — shown on home, landing pages etc
+const defaultNav = [
+  { label: 'Home', href: '/' },
+  { label: 'Road', href: '/road' },
+  { label: 'Japan', href: '/japan' },
+];
+
+const navLinks = subnav ?? defaultNav;
 ---
 
 <html lang="en">
@@ -17,9 +26,9 @@ const { title = 'Kroppix' } = Astro.props;
         <a href="/" class="brand">kroppix</a>
 
         <nav class="nav-links">
-          <a href="/">Home</a>
-          <a href="/road">Road</a>
-          <a href="/japan">Japan</a>
+          {navLinks.map(link => (
+            <a href={link.href}>{link.label}</a>
+          ))}
         </nav>
       </div>
     </header>
@@ -28,7 +37,7 @@ const { title = 'Kroppix' } = Astro.props;
       <slot />
     </main>
 
-    <!-- LIGHTBOX — lives here so you never add it to a page again -->
+    <!-- LIGHTBOX — lives here, never add it to a page -->
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" id="lightboxClose">&times;</button>
       <div class="lightbox-inner">
@@ -66,7 +75,6 @@ const { title = 'Kroppix' } = Astro.props;
         }
       });
 
-      // Close on Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') lightbox.classList.remove('open');
       });
