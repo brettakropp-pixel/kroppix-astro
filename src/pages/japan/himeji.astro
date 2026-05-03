@@ -1,48 +1,19 @@
 ---
-// ============================================================
-// KROPPIX PAGE TEMPLATE
-// ============================================================
-// HOW TO USE:
-//   1. Copy this file and rename it (e.g. arashiyama.astro)
-//   2. Work through each section marked CHANGE THIS
-//   3. Add or delete gallery sections as needed
-//   4. Done — lightbox works automatically, no extra code needed
-// ============================================================
-
 import GalleryCard from '../../components/GalleryCard.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// ============================================================
-// YOUR PHOTOS
-// ============================================================
-// Each section of your page gets its own array of photos here.
-// Add as many arrays as you need sections, or delete the ones
-// you don't need. Each photo has:
-//
-//   image   — the full URL of your image (required)
-//   title   — shown as caption title below the image (required)
-//   caption — the smaller descriptive line (optional, delete if not needed)
-//   variant — controls the image size (optional, see options below)
-//
-// VARIANT OPTIONS:
-//   (none)        — standard size, 3 across
-//   "wide"        — spans 2 columns (good for landscapes)
-//   "ultrawide"   — full width (good for hero-style images in a section)
-//   "tall"        — taller crop (good for portraits or vertical subjects)
-// ============================================================
 
-// CHANGE THIS — rename the array to match your section
 const sectionOne = [
   {
     image: "https://images.kroppix.com/japan/himeji/himeji-castle-winter.jpg", // CHANGE THIS
-    title: "Your title here",                            // CHANGE THIS
-    caption: "stone, plaster and tile",  
+    title: "Himeji-Jo",                            // CHANGE THIS
+    caption: "White Heron Castle",  
     variant: "wide"                         // CHANGE THIS (or delete this line)               
   },
   {
     image: "https://images.kroppix.com/japan/himeji/himeji-building-detail.jpg",
     title: "Castle detail",
-    caption: "Your caption here",
+    caption: "stone, plaster and tile",
     variant: "wide"           // spans 2 columns
   
   },
