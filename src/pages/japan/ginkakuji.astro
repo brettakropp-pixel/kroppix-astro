@@ -1,0 +1,152 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-ginkakuji-cityscape.jpg", // CHANGE THIS
+    title: "Your title here",
+    caption: "Your caption here",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-zen-garden-2.jpg",
+    title: "Raked sand",
+    caption: "Your caption here",
+    variant: "wide"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-zen-garden-3.jpg",
+    title: "The circle",
+    caption: "Your caption here",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-ginkakuji-moss.jpg",
+    title: "Garden moss",
+    caption: "The garden floor doing its quiet work",
+    variant: "ultrawide"
+  },
+];
+
+// CHANGE THIS — copy this block for each additional section you need
+// DELETE this whole block if you don't need a second section
+const sectionTwo = [
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-ginkakuji-roof-ornament.jpg",
+    title: "Roof detail",
+    caption: "Your caption here",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-walkto-ginkakuji.jpg",
+    title: "Rooflines and light",
+    caption: "Clean geometry against a winter sky",
+    variant: "tall"
+  },
+   {
+    image: "https://images.kroppix.com/japan/ginkakuji/kyoto-aquaduct.jpg",
+    title: "The aqueduct",
+    caption: "Brick arches repeating into the distance, an older kind of infrastructure",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/ginkakuji/ginkakuji-bridge.jpg",
+    title: "Your title here",
+    caption: "Your caption here",
+    variant: "ultrawide"
+  }
+];
+
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Ginkaku-ji"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/japan/ginkakuji/kyoto-zen-garden.jpg" 
+          alt="Brief description of the image"              
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Ginkaku-ji</h1> <!-- CHANGE THIS -->
+
+        <!-- One or two sentences about this place/journey -->
+        <p>Ginkakuji before the crowds arrived</p> <!-- CHANGE THIS -->
+
+        
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Section heading</h2> <!-- CHANGE THIS -->
+      <p>Optional one-line description of this section.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- SECOND SECTION — delete if not needed -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Section heading</h2> <!-- CHANGE THIS -->
+      <!-- No <p> here — the description line is optional, just leave it out -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionTwo.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- ADD MORE SECTIONS HERE — just copy the block above -->
+
+
+</BaseLayout>
