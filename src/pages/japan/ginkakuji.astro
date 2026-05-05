@@ -57,11 +57,6 @@ const sectionOne = [
     caption: "The garden floor doing its quiet work",
     variant: "ultrawide"
   },
-];
-
-// CHANGE THIS — copy this block for each additional section you need
-// DELETE this whole block if you don't need a second section
-const sectionTwo = [
   {
     image: "https://images.kroppix.com/japan/ginkakuji/kyoto-ginkakuji-roof-ornament.jpg",
     title: "Roof detail",
@@ -123,30 +118,14 @@ const sectionTwo = [
   ======================================================= -->
   <section class="section">
     <div class="section-heading">
-      <h2>Section heading</h2> <!-- CHANGE THIS -->
-      <p>Optional one-line description of this section.</p> <!-- CHANGE THIS or delete this line -->
+      <h2>A walk to the silver temple</h2> <!-- CHANGE THIS -->
+      <p></p> <!-- CHANGE THIS or delete this line -->
     </div>
 
     <div class="gallery-grid">
       {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
     </div>
   </section>
-
-
-  <!-- SECOND SECTION — delete if not needed -->
-  <section class="section">
-    <div class="section-heading">
-      <h2>Section heading</h2> <!-- CHANGE THIS -->
-      <!-- No <p> here — the description line is optional, just leave it out -->
-    </div>
-
-    <div class="gallery-grid">
-      {sectionTwo.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
-    </div>
-  </section>
-
-
-  <!-- ADD MORE SECTIONS HERE — just copy the block above -->
 
 
 </BaseLayout>
