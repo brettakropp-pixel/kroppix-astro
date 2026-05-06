@@ -131,12 +131,51 @@ const japanFavourites = [
 
     <div class="gallery-preview-grid">
       {japanFavourites.map(photo => (
-        <figure>
+        <figure
+          class="lightbox-trigger"
+          data-src={photo.image}
+          data-caption={`${photo.title} — ${photo.caption}`}
+        >
           <img src={photo.image} alt={photo.title} loading="lazy" decoding="async" />
           <figcaption>{photo.title} — {photo.caption}</figcaption>
         </figure>
       ))}
     </div>
   </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <div class="lightbox-inner">
+    <img src="" alt="" id="lightbox-img" />
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.lightbox-trigger').forEach(figure => {
+    figure.style.cursor = 'pointer';
+    figure.addEventListener('click', () => {
+      lightboxImg.src = figure.dataset.src;
+      lightboxCaption.textContent = figure.dataset.caption;
+      lightbox.classList.add('open');
+    });
+  });
+
+  closeBtn.addEventListener('click', () => lightbox.classList.remove('open'));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('open');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lightbox.classList.remove('open');
+  });
+</script>
   </div>
 </BaseLayout>
