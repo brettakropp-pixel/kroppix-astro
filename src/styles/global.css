@@ -538,11 +538,24 @@ p {
 
 /* IMPORTANT: separate class so it does NOT break photo pages */
 
+.gallery-preview-grid {
+  columns: 3;
+  column-gap: 16px;
+}
+
 .gallery-preview-grid figure {
   position: relative;
   overflow: hidden;
   margin: 0 0 16px;
   break-inside: avoid;
+}
+
+.gallery-preview-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  filter: saturate(0.96) contrast(1.02);
 }
 
 .gallery-preview-grid figcaption {
@@ -551,7 +564,7 @@ p {
   left: 0;
   right: 0;
   padding: 10px 12px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.55));
   color: white;
   font-size: 0.85rem;
   opacity: 0;
@@ -560,6 +573,18 @@ p {
 
 .gallery-preview-grid figure:hover figcaption {
   opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .gallery-preview-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-preview-grid {
+    columns: 1;
+  }
 }
 
 /* RESPONSIVE */
