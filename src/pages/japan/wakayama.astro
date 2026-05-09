@@ -1,0 +1,179 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-blossom.jpg",
+    title: "Kimiidera blossom",
+    caption: "Founded over 1,200 years ago, Kimiidera is one of Wakayama’s most important Buddhist temples and is especially known for its early blooming sakura.",
+    variant: "ultrawide"           // spans 2 columns
+  },
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-blossom-temple.jpg",
+    title: "Kimiidera temple",
+    caption: "The temple's wooden halls and tiled rooftops emerging through layers of pale sakura.",
+    variant: "wide"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-roof-onigawara.jpg",
+    title: "Temple tiles and carved guardians",
+    caption: "An onigawara is a traditional Japanese roof ornament featuring an ogre-like face, placed along temple roof ridges as a symbolic guardian against bad fortune.",
+    variant: "wide"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-lucky-blossom.jpg",
+    title: "Ema for good fortune",
+    caption: "Wooden prayer plaques, or ema, are commonly found at Japanese temples and shrines, where visitors leave wishes for health, success, and safe journeys.",
+    variant: "tall"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-early-blossom.jpg", // CHANGE THIS
+    title: "Early blossom",                            // CHANGE THIS
+    caption: "Cherry blossom arriving ahead of the main Kansai season. Wakayama’s milder coastal climate allows places like Kimiidera to flower earlier than Kyoto or Nara.",                         // CHANGE THIS (or delete this line)
+    variant: "tall" 
+},
+ {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-roof-detail-blossom.jpg",
+    title: "Hoju roof",
+    caption: "A sacred flame flickers against a sea of soft petals. Traditional spirits meeting the quiet beauty of the sakura season.",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-stone-blossom.jpg",
+    title: "stone maker among the blossoms",
+    caption: "Small stone monuments and markers are scattered throughout Kimiidera’s gardens, softened each spring beneath falling blossom.",
+    variant: "wide"
+},
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-railcrossing-kimiidera.jpg",
+    title: "Rail crossing near Kimiidera",
+    caption: "A quieter side of regional Japan — narrow streets, railway crossings, and everyday life unfolding beneath the temple slopes.",
+    variant: "wide"
+},
+{
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-shrine-blossom.jpg",
+    title: "Temple entrance and blossom",
+    caption: "Visitors gathering beneath flowering cherry trees during the beginning of the spring blossom season in Wakayama.",
+    variant: "ultrawide"
+},
+];
+
+// CHANGE THIS — copy this block for each additional section you need
+// DELETE this whole block if you don't need a second section
+const sectionTwo = [
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-shirahama-cliff-coast.jpg",
+    title: "Pacific cliffs near Shirahama",
+    caption: "The coastline around Shirahama is shaped by centuries of Pacific erosion, creating steep rock faces and rugged ocean inlets.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/japan/wakayama/wakayama-shirahama-coastline.jpg",
+    title: "Shirahama shoreline",
+    caption: "Low tide exposing volcanic rock and tidal pools along the southern Wakayama coast.",
+    variant: "wide"
+  },
+];
+
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Wakayama"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-roofline-blossom.jpg"
+          alt="Founded over 1,200 years ago, Kimiidera is one of Wakayama’s most important Buddhist temples and is especially known for its early blooming sakura."                  <!-- CHANGE THIS -->
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Wakayama</h1> <!-- CHANGE THIS -->
+
+        <!-- One or two sentences about this place/journey -->
+        <p>In early spring 2009, I travelled south from Osaka into Wakayama Prefecture to visit Kimiidera, a temple long associated with the arrival of Japan’s cherry blossom season.</p> <!-- CHANGE THIS -->
+
+        <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>Kimiidera is considered one of the earliest major blossom locations in the Kansai region, with flowering often beginning well before Kyoto and Nara reach full bloom. The temple sits on a hillside overlooking Wakayama city, its wooden halls and tiled rooftops emerging through layers of pale sakura.</p>
+        <p>Later in the day, the trip continued further south toward Shirahama, where the coastline changes completely — steep Pacific cliffs, dark volcanic rock, and open sea replacing the quiet temple gardens inland.  </p>
+        <!-- ROUTE STRIP — the location crumbs at the bottom of the hero -->
+        <!-- Add or remove <span> tags to match your route -->
+        <!-- DELETE this whole block if you don't want a route strip -->
+        
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Kimii-dera</h2> <!-- CHANGE THIS -->
+      <p>Kimiidera is considered one of the earliest major blossom locations in the Kansai region, with flowering often beginning well before Kyoto and Nara reach full bloom. The temple sits on a hillside overlooking Wakayama city, its wooden halls and tiled rooftops emerging through layers of pale sakura.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- SECOND SECTION — delete if not needed -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Shirahama</h2> <!-- CHANGE THIS -->
+      <p>Later in the day, the trip continued further south toward Shirahama, where the coastline changes completely — steep Pacific cliffs, dark volcanic rock, and open sea replacing the quiet temple gardens inland.</p> 
+    </div>
+
+    <div class="gallery-grid">
+      {sectionTwo.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionTwo to match your array name -->
+    </div>
+  </section>
+
+
+  <!-- ADD MORE SECTIONS HERE — just copy the block above -->
+
+
+</BaseLayout>
