@@ -12,7 +12,7 @@ const japanSets = [
     title: "Yoshino New Year",
     href: "/japan/yoshino",
     image: "https://images.kroppix.com/japan/yoshino-newyears/yoshino-shrine-lantern.jpg",
-    caption: "A cold New Year’s Day in the mountains of Nara."
+    caption: "A cold New Year's Day in the mountains of Nara."
   },
   {
     title: "Arashiyama",
@@ -42,7 +42,7 @@ const japanSets = [
     title: "Wakayama",
     href: "/japan/wakayama",
     image: "https://images.kroppix.com/japan/wakayama/wakayama-kimiidera-blossom.jpg",
-    caption: "Cherry blossom arriving ahead of the main Kansai season. Wakayama’s milder coastal climate allows places like Kimiidera to flower earlier than Kyoto or Nara."
+    caption: "Cherry blossom arriving ahead of the main Kansai season. Wakayama's milder coastal climate allows places like Kimiidera to flower earlier than Kyoto or Nara."
   }
 ];
 
@@ -78,85 +78,89 @@ const japanFavourites = [
 <BaseLayout title="Japan | kroppix">
   <div class="japan-page">
 
-<section class="page-intro">
-  <div>
-    <p class="eyebrow">Chapter One</p>
-    <h1>Japan</h1>
-  </div>
+    <section class="page-intro">
+      <div>
+        <p class="eyebrow">Chapter One</p>
+        <h1>Japan</h1>
+      </div>
+      <div>
+        <p>
+          Japan sits at the centre of this archive — family, memory, travel,
+          and the quiet precision of streets, temples, mountains and ordinary details.
+        </p>
+        <p>
+          These pages are less about major landmarks and more about small observations:
+          timber, stone, light, weather, and the feeling of moving slowly through familiar places.
+        </p>
+      </div>
+    </section>
 
-  <div>
-    <p>
-      Japan sits at the centre of this archive — family, memory, travel,
-      and the quiet precision of streets, temples, mountains and ordinary details.
-    </p>
-    <p>
-      These pages are less about major landmarks and more about small observations:
-      timber, stone, light, weather, and the feeling of moving slowly through familiar places.
-    </p>
-  </div>
-</section>
+    
 
-<section class="hero japan-full-hero">
+    <section class="hero japan-full-hero">
+      <div class="hero-frame">
+        <div class="hero-image">
+          <img
+            src="https://images.kroppix.com/japan/japan-blossom-b%26w.jpg"
+            alt="Cherry blossom branch against a dark background"
+          />
+        </div>
+        <div class="caption">
+          Blossom held briefly in light, before it disappears.
+        </div>
+      </div>
+    </section>
 
-  <div class="hero-frame">
-    <div class="hero-image">
-      <img
-        src="https://images.kroppix.com/japan/japan-blossom-b%26w.jpg"
-        alt="Cherry blossom branch against a dark background"
-      />
-    </div>
-
-    <div class="caption">
-      Blossom held briefly in light, before it disappears.
-    </div>
-  </div>
-
-</section>
-
-  <section class="sets">
-    <h2>Japan sets</h2>
-
-    <div class="sets-grid">
+    <section class="sets">
+      <h2>Japan sets</h2>
+      <nav class="set-nav">
       {japanSets.map(set => (
-        <article class="set-card">
-          <a href={set.href}>
-            <img src={set.image} alt={set.title} loading="lazy" decoding="async" />
-          </a>
-          <h3><a href={set.href}>{set.title}</a></h3>
-          <p>{set.caption}</p>
-        </article>
+        <a href={set.href}>{set.title}</a>
       ))}
-    </div>
-  </section>
+    </nav>
+      <div class="sets-grid">
+        {japanSets.map(set => (
+          <article class="set-card">
+            <a href={set.href}>
+              <img src={set.image} alt={set.title} loading="lazy" decoding="async" />
+            </a>
+            <h3><a href={set.href}>{set.title}</a></h3>
+            <p>{set.caption}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
-  <section class="gallery-preview">
-    <div class="section-heading">
-      <h2>Selected Japan work</h2>
-      <p>A few favourite frames from Japan — colour, night, water, and temple detail.</p>
+    <section class="gallery-preview">
+      <div class="section-heading">
+        <h2>Selected Japan work</h2>
+        <p>A few favourite frames from Japan — colour, night, water, and temple detail.</p>
+      </div>
+      <div class="gallery-preview-grid">
+        {japanFavourites.map(photo => (
+          <figure
+            class="lightbox-trigger"
+            data-src={photo.image}
+            data-caption={`${photo.title} — ${photo.caption}`}
+          >
+            <img src={photo.image} alt={photo.title} loading="lazy" decoding="async" />
+            <figcaption>{photo.title} — {photo.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close">&times;</button>
+      <div class="lightbox-inner">
+        <img src="" alt="" id="lightbox-img" />
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
     </div>
 
-    <div class="gallery-preview-grid">
-      {japanFavourites.map(photo => (
-        <figure
-          class="lightbox-trigger"
-          data-src={photo.image}
-          data-caption={`${photo.title} — ${photo.caption}`}
-        >
-          <img src={photo.image} alt={photo.title} loading="lazy" decoding="async" />
-          <figcaption>{photo.title} — {photo.caption}</figcaption>
-        </figure>
-      ))}
-    </div>
-  </section>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightbox-close">&times;</button>
-  <div class="lightbox-inner">
-    <img src="" alt="" id="lightbox-img" />
-    <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
-</div>
+</BaseLayout>
 
 <script>
   const lightbox = document.getElementById('lightbox');
@@ -183,5 +187,3 @@ const japanFavourites = [
     if (e.key === 'Escape') lightbox.classList.remove('open');
   });
 </script>
-  </div>
-</BaseLayout>

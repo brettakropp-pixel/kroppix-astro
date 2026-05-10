@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const journeys = [
   {
     title: "QLD East Coast",
-    href: "/road/qld-east-coast",
+    href: "/road/maryborough-ayr",
     image: "https://images.kroppix.com/road/qld-east-coast/bargara-drone-coastline.jpg",
     caption: "A south-to-north run through cane fields, ranges and coastal water."
   },
@@ -72,11 +72,11 @@ const roadFavourites = [
 
   <section class="hero">
     <img
-      src="https://images.kroppix.com/road/qld-east-coast/magnetic-island-jetty.jpg"
-      alt="Jetty extending into blue water at Magnetic Island"
+      src="https://images.kroppix.com/road/road-kropps-lap.jpg"
+      alt=""
     />
     <div class="caption">
-      Magnetic Island. A line out over water, somewhere near the end of the road.
+      Original artwork by E Kropp - our adventure house on wheels.
     </div>
   </section>
 
@@ -104,7 +104,12 @@ const roadFavourites = [
   </section>
 
   <section class="sets">
-    <h2>Journeys</h2>
+    <h2>Queensland Journeys</h2>
+    <nav class="set-nav">
+      {journeys.map(j => (
+        <a href={j.href}>{j.title}</a>
+      ))}
+    </nav>
 
     <div class="sets-grid">
       {journeys.map(j => (
@@ -121,7 +126,7 @@ const roadFavourites = [
 
   <section class="gallery-preview">
     <div class="section-heading">
-      <h2>Selected road work</h2>
+      <h2>Lap Favourites</h2>
       <p>A few favourite frames from the road — coast, inland light, wildlife, and night sky.</p>
     </div>
 

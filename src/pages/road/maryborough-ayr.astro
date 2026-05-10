@@ -1,0 +1,130 @@
+---
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const coast = [
+{
+    image: "https://images.kroppix.com/road/qld-east-coast/maryborough-mary-river-drone.jpg",
+    title: "Maryborough",
+    caption: "Drone view of the Mary River",
+    variant: "wide"
+  },  
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/road-bargara-rockpool.jpg",
+    title: "Bargara",
+    caption: "Rockpool at Bargara, a coastal town just north of Maryborough - a place we could call home",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/finch-hatton-drone.jpg",
+    title: "Finch Hatton aerial",
+    caption: "A drone view of the Finch Hatton gorge and surrounding ranges.",
+    variant: "ultrawide"
+  },
+{
+    image: "https://images.kroppix.com/road/qld-east-coast/finch-hatton-mountain-view.jpg",
+    title: "Finch Hatton from Eungella",
+    caption: "Cloud shadow over green country",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/finch-hatton-gorge-waterfall2.jpg",
+    title: "Finch Hatton gorge waterfall",
+    caption: "Waterfall and rainforest in Finch Hatton gorge, a lush pocket of the ranges.",
+    variant: "wide"
+  },
+    {
+    image: "https://images.kroppix.com/road/qld-east-coast/mackay-sugarcane-drone.jpg",
+    title: "Mackay cane fields",
+    caption: "Aerial view of the sugarcane fields near Mackay.",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/mackay-canefields-drone.jpg",
+    title: "Mackay sugarcane sunset",
+    caption: "A warmer inland edge to the coast, where the cane fields meet the light of the setting sun.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/mackay-sugarcane-sunset.jpg",
+    title: "Cane sunset",
+    caption: "A warmer inland edge to the coast",
+    variant: "wide"
+  },    
+    {
+    image: "https://images.kroppix.com/road/qld-east-coast/finch-hatton-gorge-waterfall.jpg",
+    title: "Finch Hatton gorge  ",
+    caption: "Rock, rainforest and running water",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/eungella-nationalpark-platypus.jpg",
+    title: "shhhh",
+    caption: "early riser preparing for a rare moment",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/eungella-nationalpark-platypus-2.jpg",
+    title: "Platypus",
+    caption: "Emergence of the strange one",
+    variant: "wide"
+  }
+  ,
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/ayr-sunset-grass.jpg",
+    title: "Platypus",
+    caption: "Emergence of the strange one",
+    variant: "ultrawide"
+  }
+  ,
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/ary-sugar-cane-farm-camp-milkyway.jpg",
+    title: "Ayr cane farm camp",
+    caption: "our trips first taste of friends and campfires, met on the road.",
+    variant: "wide"
+  }
+  ,
+  {
+    image: "https://images.kroppix.com/road/qld-east-coast/ayr-sugarcane-fire.jpg",
+    title: "Ayr sugarcane fire",
+    caption: "Watching the fire burn through the cane fields near Ayr, a common sight in the lead up to harvest season.",
+    variant: "wide"
+  }
+];
+
+---
+
+<BaseLayout title="Maryborough to Ayr ">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-image">
+        <img src="https://images.kroppix.com/road/qld-east-coast/bargara-drone-coastline.jpg" />
+      </div>
+
+  <div class="hero-copy">
+          <h1>Queensland East Coast</h1>
+          <p>A loose road journey from Bargara north through cane fields, ranges, island water and bright tropical coast.</p>
+          <p>This set is less about one place than the movement between them — the way the colour, weather and distance shift as the road heads north.</p>
+          <div class="route-strip">
+              <span>Bargara</span>
+              <span>Finch Hatton</span>
+              <span>Mackay</span>
+              <span>Ayr</span>
+
+             </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+   <div class="section-heading">
+  <h2>East Coast</h2>
+  <p>Rainforest edges, coastal light, and quiet movement along the shoreline.</p>
+</div>
+    <div class="gallery-grid">
+{coast.map(photo => <GalleryCard {...photo} />)}
+    </div>
+  </section>
+
+</BaseLayout>
