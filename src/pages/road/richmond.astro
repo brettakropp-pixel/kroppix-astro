@@ -1,0 +1,160 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-moonstone-emi.jpg", 
+    title: "Moonstone", 
+    caption: "a common sight around the township",
+    variant: "wide" 
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossicking-dig.jpeg",
+    title: "The dig",
+    caption: "The public fossicking site — open ground, basic tools, and a surprising amount of patience required. The fossils are there; you just have to find the right layer.",
+    variant: "wide"           // spans 2 columns
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossicking-family.jpg",
+    title: "Fossicking family",
+    caption: "The dig in progress. The method is straightforward: find a promising seam, work slowly, and don't confuse a rock with a belemnite until you're certain.",
+    variant: "ultrawide"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossil-site.jpg",
+    title: "Fossicking area",
+    caption: "Fossil Site 1 — the sign undersells it somewhat.",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossil-fish.jpg",
+    title: "Fish fossil",
+    caption: "A fossil fish fragment — the kind of find that takes a moment to register. Fish, in the middle of dry western Queensland.",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-kangaroo-sunset.jpeg",
+    title: "campsite wildlife at sunset",
+    caption: "A kangaroo in the late afternoon light outside town. Richmond at dusk has a particular quality — something you only feel in the outback.",
+    variant: "tall"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossil-belemnite.jpg",
+    title: "Belemnite fossil",
+    caption: "A well-preserved belemnite fossil — a relic of the ancient inland sea.",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossil-belemnite-inrock.jpg",
+    title: "Belemnite in rock",
+    caption: "A belemnite still partly embedded in matrix. This is how most of them come out — you find the shape first, then work around it",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-belemnites.jpg",
+    title: "Belemnites!",
+    caption: "A collection of belemnites laid out after the dig — the fossilised shells of squid-like creatures that lived in the inland sea. Common at Richmond, but still strange to hold something that old.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossil-fossicking.jpg",
+    title: "Fossicking",
+    caption: "Exploring the fossicking site with the family.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-fossil-vertibrae.jpg",
+    title: "Fossil vertebra",
+    caption: "A fossil vertebra still sitting in the surrounding rock. The detail in the structure is surprisingly clear.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/richmond/richmond-kronosauraus-corner.jpg",
+    title: "Dinosaur museum",
+    caption: "Kronosaurus Korner, Richmond's fossil museum — named for the marine reptile found here in 1989. The full skeleton gives a sense of what was moving through that inland sea.",
+    variant: "ultrawide"
+  }
+];
+
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Richmond"> 
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/road/richmond/richmond-sunset-corellas.jpg"
+          alt="Richmond free campsite at sunset"
+          title="View from Charters Towers hill"
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Richmond</h1>
+
+        <!-- One or two sentences about this place/journey -->
+        <p>Richmond sits in the middle of western Queensland, about three hours inland from Charters Towers on the Flinders Highway. It's a small town by any measure, but it sits on top of something remarkable — the bed of an ancient inland sea that covered this part of Australia roughly 100 million years ago. What's left of that sea is now slowly coming out of the ground.</p> <!-- CHANGE THIS -->
+
+        <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>We stopped here as part of the inland run, and it turned out to be one of the better decisions of the trip. The fossicking site is free and open — you just turn up, dig, and see what the ground gives you. The kids found belemnites within the first ten minutes. That changes the pace of a day considerably</p>
+        
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>Dirt, dust and bones</h2> <!-- CHANGE THIS -->
+      <p>A copule of days spent digging for fossils.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+</BaseLayout>
