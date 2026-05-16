@@ -1,0 +1,144 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/road/charters/charters-township.jpg", // CHANGE THIS
+    title: "Charters Township",                            // CHANGE THIS
+    caption: "Charters Towers from above, the grid of streets running out to the edge of the scrub. Still clearly a town built for more people than it currently holds.",
+    variant: "wide"
+},
+  {
+    image: "https://images.kroppix.com/road/charters/charters-wallabies-joey.jpg",
+    title: "Wallabies at Tower Hill",
+    caption: "Wallabies on the rocks at Tower Hill, including a joey at an age where it has opinions about sitting still.",
+    variant: "wide"           // spans 2 columns
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-goldfield-python.jpg",
+    title: "Large python",
+    caption: "Think twice before fossicking for gold in the scrub around Charters Towers — you might find more than you bargained for.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-bustard.jpg",
+    title: "Bustard!!",
+    caption: "An Australian bustard in the dry grass outside town. Unhurried. Largely unbothered",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-gold-battery.jpg",
+    title: "Venus gold battery",
+    caption: "The Venus Battery, established 1872. One of the few remaining stamp batteries in Queensland — built to crush quartz and extract the gold from it",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-gold-battery-inside.jpg",
+    title: "Gold machine",
+    caption: "Inside the battery: timber, iron, and silence. The machinery that once ran day and night across the entire goldfield.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-gold-battery-map.jpg",
+    title: "Venus gold battery map",
+    caption: "A period diagram of the Venus Battery layout — ore, water, stamps, and tables, arranged with the logic of extraction.",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-burdekin-river.jpg",
+    title: "Burdekin River",
+    caption: "Broad, flat, and copper-coloured after rain. The bridge crossing marks the edge of the tablelands.",
+    variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/road/charters/charters-petrified-wood.jpg",
+    title: "Petrified Wood",
+    caption: "A piece of petrified wood from below the weir.",
+    variant: "tall"
+  }
+];
+
+// ADD MORE SECTIONS HERE if needed — just copy the block above
+---
+
+<BaseLayout title="Charters Towers"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+     <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/road/charters/charters-towers-hill.jpg"
+          alt="View from Charters Towers hill"
+          title="View from Charters Towers hill"
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Charters Towers</h1> <!-- CHANGE THIS -->
+
+        <!-- One or two sentences about this place/journey -->
+        <p>Charters Towers sits about 135 kilometres inland from Townsville, at the edge of the dry country. 
+            In the 1870s, gold was found here by a thirteen-year-old boy, 
+            and within a decade the town had grown into one of the wealthiest in Queensland — 
+            a full city, with its own stock exchange, banks, and the nickname it still carries: The World.</p> <!-- CHANGE THIS -->
+
+        <p>It doesn't feel like that now. What's left is quieter — wide streets, nineteenth-century facades, 
+            a gold battery still standing in the scrub. We came through on a separate trip, 
+            not part of the long coastal run but out start to the inland run</p>
+</div>
+      
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>A few days in Charters before heading further west</h2> <!-- CHANGE THIS -->
+
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+</BaseLayout>
