@@ -34,21 +34,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 // CHANGE THIS — rename the array to match your section
 const sectionOne = [
   {
-    image: "https://images.kroppix.com/YOUR-IMAGE.jpg", // CHANGE THIS
-    title: "Your title here",                            // CHANGE THIS
-    caption: "Your caption here"                         // CHANGE THIS (or delete this line)
+    image: "https://images.kroppix.com/road/julia-quamby/julia-creek-township.jpg", // CHANGE THIS
+    title: "Julia Creek",                            // CHANGE THIS
+    caption: "The township of Julia Creek, aerial view from the drone.",
+    variant: "ultrawide"
   },
   {
-    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
-    title: "Your title here",
-    caption: "Your caption here",
+    image: "https://images.kroppix.com/road/julia-quamby/julia-creek-dunnart.jpg",
+    title: "Dunnart in Julia Creek",
+    caption: "The information centre has a display about the local wildlife.",
     variant: "wide"           // spans 2 columns
   },
   {
-    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
-    title: "Your title here",
-    caption: "Your caption here",
-    variant: "ultrawide"      // full width
+    image: "https://images.kroppix.com/road/julia-quamby/julia-creek-sunset-windmill.jpg",
+    title: "another outback sunset",
+    caption: "Windmill, dust and warm light — the outback showing off again.",
+    variant: "wide"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/road/julia-quamby/julia-creek-campsite.jpg",
+    title: "Julia Creek free camp",
+    caption: "Great camp, close to town and the creek.",
+    variant: "ultrawide"           // spans 2 columns
   }
 ];
 
@@ -56,29 +63,53 @@ const sectionOne = [
 // DELETE this whole block if you don't need a second section
 const sectionTwo = [
   {
-    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
-    title: "Your title here",
-    caption: "Your caption here",
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-fossicking-site.jpg",
+    title: "Quamby fossicking site",
+    caption: "A popular location for amethyst hunting.",
     variant: "wide"
   },
   {
-    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
-    title: "Your title here",
-    caption: "Your caption here",
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-amethyst-fossicking.jpg",
+    title: "Quamby amethyst fossicking",
+    caption: "Digging for precious stones in the red clay.",
     variant: "wide"
   },
   {
-    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
-    title: "Your title here",
-    caption: "Your caption here",
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-view.jpg",
+    title: "Quamby view",
+    caption: "A scenic overlook of the fossicking site.",
     variant: "ultrawide"
+  },
+  {
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-amethyst-inground.jpg",
+    title: "Quamby amethyst in the ground",
+    caption: "The unique zigzag pattern of the amethyst.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-digging-amethyst.jpg",
+    title: "Quamby amethyst digging",
+    caption: "Excavating the precious stones from the red clay.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-zizzag-amethyst.jpg",
+    title: "Quamby zigzag amethyst",
+    caption: "The distinctive zigzag pattern of the amethyst.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/road/julia-quamby/quamby-kai-amethyst.jpg",
+    title: "Quamby Kai's amethyst",
+    caption: "A special find from the fossicking trip.",
+    variant: "wide"
   }
 ];
 
 // ADD MORE SECTIONS HERE if needed — just copy the block above
 ---
 
-<BaseLayout title="Page Title"> <!-- CHANGE THIS — tab title in browser -->
+<BaseLayout title="Julia Creek & Quamby"> <!-- CHANGE THIS — tab title in browser -->
 
   <!-- ======================================================
     HERO — the big image + text at the top of the page
@@ -88,29 +119,22 @@ const sectionTwo = [
 
       <div class="hero-image">
         <img
-          src="https://images.kroppix.com/road/richmond/richmond-sunset-corellas.jpg"
-          alt="Richmond free campsite at sunset"
-          title="View from Charters Towers hill"
+          src="https://images.kroppix.com/road/west-of-the-coast/julia-creek-willywagtail.jpg"
+          alt="willy wagtail in the warm light of a late afternoon in Julia Creek"
+          title="Willy wagtail, Julia Creek"
         />
       </div>
 
       <div class="hero-copy">
-        <h1>Page Title</h1> <!-- CHANGE THIS -->
+        <h1>Julia Creek & Quamby</h1> <!-- CHANGE THIS -->
 
         <!-- One or two sentences about this place/journey -->
-        <p>Your description here.</p> <!-- CHANGE THIS -->
+        <p>Julia Creek has a free camp on the creek that's worth the detour on its own. Wattle in season, good water, and if you're quiet at night, dunnarts. We were. One wandered close enough to photograph — a moment that felt like the outback deciding to show off a little.</p> <!-- CHANGE THIS -->
 
         <!-- DELETE the second <p> if you only want one paragraph -->
-        <p>A second line if you want it.</p>
+        <p>Quamby is known for one thing — zigzag amethyst. Purple crystal locked in ironstone matrix in a pattern you don't see anywhere else. We drove out from Julia Creek for a day of digging in red clay, and came home with dirty hands and a few pieces worth keeping. Kai came home with considerably more enthusiasm than he left with.</p>
 
-        <!-- ROUTE STRIP — the location crumbs at the bottom of the hero -->
-        <!-- Add or remove <span> tags to match your route -->
-        <!-- DELETE this whole block if you don't want a route strip -->
-        <div class="route-strip">
-          <span>Location one</span>  <!-- CHANGE THIS -->
-          <span>Location two</span>  <!-- CHANGE THIS -->
-          <span>Location three</span> <!-- CHANGE THIS or delete -->
-        </div>
+       
       </div>
 
     </div>
@@ -123,7 +147,7 @@ const sectionTwo = [
   ======================================================= -->
   <section class="section">
     <div class="section-heading">
-      <h2>Section heading</h2> <!-- CHANGE THIS -->
+      <h2>Julia Creek</h2> <!-- CHANGE THIS -->
       <p>Optional one-line description of this section.</p> <!-- CHANGE THIS or delete this line -->
     </div>
 
@@ -136,7 +160,7 @@ const sectionTwo = [
   <!-- SECOND SECTION — delete if not needed -->
   <section class="section">
     <div class="section-heading">
-      <h2>Section heading</h2> <!-- CHANGE THIS -->
+      <h2>Quamby - Fossicking</h2> <!-- CHANGE THIS -->
       <!-- No <p> here — the description line is optional, just leave it out -->
     </div>
 
