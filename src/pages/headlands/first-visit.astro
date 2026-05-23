@@ -1,0 +1,124 @@
+---
+// ============================================================
+// KROPPIX PAGE TEMPLATE
+// ============================================================
+// HOW TO USE:
+//   1. Copy this file and rename it (e.g. arashiyama.astro)
+//   2. Work through each section marked CHANGE THIS
+//   3. Add or delete gallery sections as needed
+//   4. Done — lightbox works automatically, no extra code needed
+// ============================================================
+
+import GalleryCard from '../../components/GalleryCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// ============================================================
+// YOUR PHOTOS
+// ============================================================
+// Each section of your page gets its own array of photos here.
+// Add as many arrays as you need sections, or delete the ones
+// you don't need. Each photo has:
+//
+//   image   — the full URL of your image (required)
+//   title   — shown as caption title below the image (required)
+//   caption — the smaller descriptive line (optional, delete if not needed)
+//   variant — controls the image size (optional, see options below)
+//
+// VARIANT OPTIONS:
+//   (none)        — standard size, 3 across
+//   "wide"        — spans 2 columns (good for landscapes)
+//   "ultrawide"   — full width (good for hero-style images in a section)
+//   "tall"        — taller crop (good for portraits or vertical subjects)
+// ============================================================
+
+// CHANGE THIS — rename the array to match your section
+const sectionOne = [
+  {
+    image: "https://images.kroppix.com/house/first-visit/bargara-foreshore-emi.jpg", // CHANGE THIS
+    title: "Always in the photo",                            // CHANGE THIS
+    caption: "Emi as always wanting her photo taken. This was during a walk along the Bargara foreshore.",
+    variant: "wide"                          // CHANGE THIS (or delete this line)
+  },
+  {
+    image: "https://images.kroppix.com/house/first-visit/bargara-fishandchips.jpg",
+    title: "Bargara fish and chips",
+    caption: "average at best and we still say everyime we go back we need to find a good fish & chips shop 🙂",
+    variant: "wide"           // spans 2 columns
+  },
+  {
+    image: "https://images.kroppix.com/house/first-visit/bargara-pano-rockpool.jpg",
+    title: "The Basin",
+    caption: "The famous Basin rockpool at Bargara",
+    variant: "ultrawide"      // full width
+  },
+  {
+    image: "https://images.kroppix.com/house/first-visit/bargara-rockhound.jpg",
+    title: "head down",
+    caption: "unlike Emi, Kai was always head down looking for shells and rocks to collect.",
+    variant: "wide"
+    },
+    {
+    image: "https://images.kroppix.com/house/first-visit/bargara-dad-emi.jpg",
+    title: "Dad and Emi",
+    caption: "A moment captured at the beach, back when Emi was still happy to be held by Dad.",
+    variant: "wide"
+    },
+    {
+    image: "https://images.kroppix.com/road/qld-east-coast/bargara-drone-coastline.jpg",
+    title: "bargara coastline",
+    caption: "Another drone shot of the beautiful winter coastline.",
+    variant: "ultrawide"
+    }
+];
+---
+
+<BaseLayout title="🌊 Bargara - First Visit"> <!-- CHANGE THIS — tab title in browser -->
+
+  <!-- ======================================================
+    HERO — the big image + text at the top of the page
+  ======================================================= -->
+  <section class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-image">
+        <img
+          src="https://images.kroppix.com/house/first-visit/bargara-drone-2.jpg"
+          alt="Bargara drone view"
+          title="Bargara in early 2020"
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1>Bargara - The seed planted</h1> <!-- CHANGE THIS -->
+
+        <!-- One or two sentences about this place/journey -->
+        <p>Bargara was one of the first places we stopped when we started travelling around Queensland in early 2020.</p> <!-- CHANGE THIS -->
+
+        <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>At the time it was just another stop along the coast — fish and chips, rock pools, walking along the shoreline.</p>
+              <!-- DELETE the second <p> if you only want one paragraph -->
+        <p>But it stayed in our minds long after we left.</p>
+
+              </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+    GALLERY SECTION — copy this block for each section
+    Delete sections you don't need
+  ======================================================= -->
+  <section class="section">
+    <div class="section-heading">
+      <h2>One day turning to a lifetime</h2> <!-- CHANGE THIS -->
+      <p>Just a quick visit to one of my favourite places. This was the first time for the rest of the family. Beautiful weather, blue skies, blue ocean.</p> <!-- CHANGE THIS or delete this line -->
+    </div>
+
+    <div class="gallery-grid">
+      {sectionOne.map(photo => <GalleryCard {...photo} />)} <!-- CHANGE sectionOne to match your array name -->
+    </div>
+  </section>
+
+
+</BaseLayout>

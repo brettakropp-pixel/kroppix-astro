@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const chapters = [
+  {
+    title: "First Visit",
+    href: "/home/headlands/first-visit",
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    caption: "Bargara was one of the first places we stopped when we started travelling in early 2020. We remember saying we could live here."
+  },
+  {
+    title: "Securing the Block",
+    href: "/home/headlands/securing-the-block",
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    caption: "A wide block near the coast, with a north-facing rear and enough space for the life we were imagining."
+  },
+  {
+    title: "Choosing the Plan",
+    href: "/home/headlands/choosing-the-plan",
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    caption: "Finding a plan that worked for the block, the family, and the way we wanted to live."
+  },
+  {
+    title: "Selections",
+    href: "/home/headlands/selections",
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    caption: "Bricks, roof colours, flooring, cabinetry, tiles and the small decisions that slowly shaped the house."
+  },
+  {
+    title: "The Build",
+    href: "/home/headlands/build",
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    caption: "From scrape and slab to frame, roof, bricks and plaster — the house slowly becoming real."
+  },
+  {
+    title: "Living Here",
+    href: "/home/headlands/living-here",
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    caption: "Moving in, setting up rooms, growing gardens and slowly making it ours."
+  }
+];
+
+const houseImages = [
+  {
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    title: "First visit",
+    caption: "Bargara in early 2020, before it was anything more than a passing thought.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    title: "The block",
+    caption: "The piece of land that slowly turned the idea into something real.",
+    variant: "standard"
+  },
+  {
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    title: "The plan",
+    caption: "The first time the house started to feel like it had a shape.",
+    variant: "standard"
+  },
+  {
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    title: "Selections",
+    caption: "The colours, materials and small decisions that made it feel like ours.",
+    variant: "wide"
+  },
+  {
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    title: "Rising",
+    caption: "The frame, roofline and first real sense of the house in place.",
+    variant: "standard"
+  },
+  {
+    image: "https://images.kroppix.com/YOUR-IMAGE.jpg",
+    title: "Home",
+    caption: "The beginning of the next part — living here, changing it, growing into it.",
+    variant: "standard"
+  }
+];
+---
+
+<BaseLayout title="Headlands | kroppix">
+
+  <section class="page-intro">
+    <div>
+      <p class="eyebrow">Private Archive</p>
+      <h1>Headlands</h1>
+    </div>
+
+    <div>
+      <p>
+        A private family record of finding a place, choosing a house, building it,
+        and slowly making it ours.
+      </p>
+      <p>
+        These pages are less about construction alone and more about how a passing
+        thought on an early trip became a home near the coast.
+      </p>
+    </div>
+  </section>
+
+  <section class="hero">
+    <img
+      src="https://images.kroppix.com/house/land/headlands-estate-2025-drone.jpg"
+      alt="Headlands house build"
+    />
+    <div class="caption">
+      Headlands — from first idea to family home.
+    </div>
+  </section>
+
+  <section class="body-copy">
+    <div>
+      <p>
+        Bargara was one of the first places we stopped when we started travelling
+        around Queensland in early 2020. We remember saying, almost casually,
+        that we could live here.
+      </p>
+      <p>
+        At the time it felt like a passing thought. A nice place by the coast,
+        somewhere we liked, but not yet part of any real plan.
+      </p>
+    </div>
+
+    <div>
+      <p>
+        A few years later, that thought slowly turned into looking at land,
+        comparing house plans, making selections, waiting on approvals and watching
+        an empty block become something permanent.
+      </p>
+      <p>
+        This is the record of that process — the decisions, the photos, the stress,
+        the small wins, and the ordinary moments that made it ours.
+      </p>
+    </div>
+  </section>
+
+  <section class="sets">
+    <h2>House Chapters</h2>
+
+    <nav class="set-nav">
+      {chapters.map(chapter => (
+        <a href={chapter.href}>{chapter.title}</a>
+      ))}
+    </nav>
+
+    <div class="sets-grid">
+      {chapters.map(chapter => (
+        <article class="set-card">
+          <a href={chapter.href}>
+            <img src={chapter.image} alt={chapter.title} loading="lazy" decoding="async" />
+          </a>
+          <h3><a href={chapter.href}>{chapter.title}</a></h3>
+          <p>{chapter.caption}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="gallery-preview">
+    <div class="section-heading">
+      <h2>House Archive</h2>
+      <p>
+        A loose collection of images from the early visits, the block, the plans,
+        selections, construction and the beginning of life at Headlands.
+      </p>
+    </div>
+
+    <div class="gallery-preview-grid">
+      {houseImages.map(photo => (
+        <figure class:list={["archive-image", photo.variant]}>
+          <img src={photo.image} alt={photo.title} loading="lazy" decoding="async" />
+          <figcaption>{photo.title} — {photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>
